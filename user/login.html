@@ -49,6 +49,7 @@
   // 当用户提交表单时，获取用户的输入名和信息
   $('form').eq(0).on('submit',function(eve) {
     var inf = $('form').serialize();
+    console.log(inf)
     //将用户数据发到后端
     $.ajax({
         url: '/api/user/login',

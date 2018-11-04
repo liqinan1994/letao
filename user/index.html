@@ -25,7 +25,7 @@
                 <a class="mui-navigate-right" href="#account">
                     <img class="mui-media-object mui-pull-left head-img" id="head-img" src="../images/user.jpg">
                     <div class="mui-media-body">
-                        Hello MUI
+                        Hello <span class="nickname"></span>
                         <p class="mui-ellipsis">账号:hellomui</p>
                     </div>
                 </a>
@@ -56,6 +56,8 @@
 <script src="../js/jquery-1.12.4.js"></script>
 <script src="../res/mui/js/mui.min.js"></script>
 <script>
+    //获取用户信息
+    //CORS跨域
     // $.ajax({
     //     url: 'http://localhost:3000/user/queryUserMessage',
     //     type: 'get',
@@ -72,6 +74,7 @@
     //     }
     // })
 
+    //反向代理
     $.ajax({
         url: '/api/user/queryUserMessage',
         type: 'get',
@@ -80,6 +83,7 @@
                 location.href = './login.html';
             } else {
                 console.log(data);
+                $('span.nickname').text(data.username);
             }
         }
     })
